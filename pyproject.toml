@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leetcode-cli"
+version = "0.1.0"
+description = "A CLI tool for practicing LeetCode problems interactively"
+authors = [{ name = "Moghal Sheeba", email = "msheeba00@gmail.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "requests",
+    "click",
+]
+
+[project.scripts]
+leetcode-cli = "leetcode-local.cli:main"
+
+[tool.setuptools]
+packages = ["leetcode-local"]
+
+[tool.setuptools.package-data]
+leetcode-local = ["*.py"]

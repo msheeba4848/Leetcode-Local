@@ -1,0 +1,2 @@
+[console_scripts]
+leetcode-local = leetcode_local.cli.commands:main

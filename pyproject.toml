@@ -1,25 +1,37 @@
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+# LeetCode Local Practice Configuration
 
-[project]
-name = "leetcode-local"
-version = "0.1.0"
-description = "A CLI tool to practice LeetCode problems locally"
-authors = [{ name = "Sheeba Moghal", email = "msheeba00@gmail.com" }]
-license = { text = "MIT" }
-readme = "README.md"
-requires-python = ">=3.7"
-dependencies = [
-    "requests",
-    "click",
-]
+[paths]
+# Directory where solution templates are stored by default
+solutions_dir = "solutions"
+# Directory where custom test cases are stored
+test_cases_dir = "test_cases"
 
-[project.scripts]
-leetcode-local = "leetcode_local.cli:cli"
+[preferences]
+# Default difficulty level for filtering (EASY, MEDIUM, HARD, or ALL)
+default_difficulty = "ALL"
+# Default problem category for filtering
+default_category = "ALL"
+# Default template style (basic, detailed)
+template_style = "detailed"
+# Number of problems to display per page in browse mode
+page_size = 10
 
-[tool.setuptools]
-packages = ["leetcode_local"]
+[testing]
+# Print detailed output for each test case
+verbose = true
+# Time each solution
+time_solutions = true
+# Maximum execution time for each test (seconds)
+timeout = 5
 
-[tool.setuptools.package-data]
-leetcode_local = ["*.py"]
+[problems]
+# Whether to include locked LeetCode problems
+include_locked = false
+# Custom difficulty coloring
+color_easy = "green"
+color_medium = "yellow"
+color_hard = "red"
+
+[leetcode75]
+# Whether to restrict the problems to LeetCode 75 list only
+restrict_to_leetcode75 = true

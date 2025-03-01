@@ -63,25 +63,28 @@ def run_test(problem, solution_func, test_case_idx=None):
     return results
 
 def print_test_results(problem, results):
-    """Print the results of testing a solution."""
+    """Print the results of testing a solution with friendly messages."""
     print(f"\n===== TESTING {problem.title} =====")
     
     total_tests = len(results)
     passed_tests = sum(1 for r in results if r["passed"])
     
     for i, result in enumerate(results):
-        status = "PASSED" if result["passed"] else "FAILED"
-        print(f"\nTest Case {result['test_case_idx'] + 1}: {status}")
-        print(f"Input: {result['input']}")
-        print(f"Expected: {result['expected']}")
-        print(f"Actual: {result['actual']}")
-        
-        if not result["passed"] and "error" in result:
-            print(f"Error: {result['error']}")
-    
+        if result["passed"]:
+            print(f"You're correct! So proud of you! Test Case {result['test_case_idx'] + 1}")
+            print(f"   Input: {result['input']}")
+            print(f"   Output: {result['actual']}")
+        else:
+            print(f"Great work, you're almost there. You need to fix this! Test Case {result['test_case_idx'] + 1}")
+            print(f"   Input: {result['input']}")
+            print(f"   Expected: {result['expected']}")
+            print(f"   Actual: {result['actual']}")
+            if "error" in result:
+                print(f"   Error: {result['error']}")
+
     print(f"\nSummary: {passed_tests}/{total_tests} tests passed")
     
     if passed_tests == total_tests:
         print("All tests passed! Your solution is correct.")
     else:
-        print(f"{total_tests - passed_tests} tests failed. Keep trying!")
+        print(f"{total_tests - passed_tests} test(s) failed. Keep trying!")

@@ -8,6 +8,8 @@ from ..problems import arrays_and_hashing, two_pointers, sliding_window
 from ..testing.test_runner import load_solution, run_test, print_test_results
 from ..problems import Difficulty
 from ..config.manager import get_config
+from ..utils.solution_template import create_solution_template
+from ..utils.problem_utils import get_problem_by_id, get_problem_by_name
 
 # Dictionary mapping modules to their problem types
 PROBLEM_MODULES = {

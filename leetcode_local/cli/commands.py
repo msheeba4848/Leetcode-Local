@@ -11,6 +11,7 @@ from ..config.manager import get_config
 from ..utils.solution_template import create_solution_template
 from ..utils.problem_utils import get_problem_by_id, get_problem_by_name
 
+
 # Dictionary mapping modules to their problem types
 PROBLEM_MODULES = {
     "arrays_and_hashing": arrays_and_hashing,
@@ -131,6 +132,20 @@ def main():
         manage_config(args)
     else:
         parser.print_help()
+def test_solution(problem_id, solution_path, test_case_idx=None, timeout=5):
+    """Runs the solution and prints results using your test runner."""
+    problem = get_problem_by_id(problem_id)
+
+    if not problem:
+        print(f"Problem with ID {problem_id} not found.")
+        return
+
+    try:
+        solution_func = load_solution(solution_path, problem.function_name)
+        results = run_test(problem, solution_func, test_case_idx)
+        print_test_results(problem, results)
+    except Exception as e:
+        print(f"Error while running tests: {e}")
 
 def list_problems(category=None, difficulty=None):
     """List available problems, optionally filtered by category and/or difficulty."""
@@ -173,4 +188,3 @@ def list_problems(category=None, difficulty=None):
     color_medium = config.get("problems", "color_medium", "yellow")
     color_hard = config.get("problems", "color_hard", "red")
     
-    # Color function - simple AN

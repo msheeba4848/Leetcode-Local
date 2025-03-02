@@ -17,21 +17,4 @@ template_style = "detailed"
 page_size = 10
 
 [testing]
-# Print detailed output for each test case
-verbose = true
-# Time each solution
-time_solutions = true
-# Maximum execution time for each test (seconds)
-timeout = 5
-
-[problems]
-# Whether to include locked LeetCode problems
-include_locked = false
-# Custom difficulty coloring
-color_easy = "green"
-color_medium = "yellow"
-color_hard = "red"
-
-[leetcode75]
-# Whether to restrict the problems to LeetCode 75 list only
-restrict_to_leetcode75 = true
+# Print detailed output 

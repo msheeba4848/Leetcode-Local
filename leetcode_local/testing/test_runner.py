@@ -82,9 +82,4 @@ def print_test_results(problem, results):
             if "error" in result:
                 print(f"   Error: {result['error']}")
 
-    print(f"\nSummary: {passed_tests}/{total_tests} tests passed")
-    
-    if passed_tests == total_tests:
-        print("All tests passed! Your solution is correct.")
-    else:
-        print(f"{total_tests - passed_tests} test(s) failed. Keep trying!")
+    prin
